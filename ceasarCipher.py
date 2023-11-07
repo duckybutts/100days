@@ -23,22 +23,23 @@ print(logo)
 quitProgram = False
 def cesarCipher (text, shift, instructions):
     newString = ""
-    for i in range(len(text)):
-        char = text[i]
-        if instructions.lower() == "decode" or instructions.lower() == "encode":
+    instructions = instructions.lower()
+    if instructions == "decode" or instructions == "encode":
+        for i in range(len(text)):
+            char = text[i]
             if char in alphabet:
                 oldPosition = alphabet.index(text[i])
-                if instructions.lower() == "encode":
+                if instructions == "encode":
                     newPosition = (oldPosition + shift) % len(alphabet)
-                elif instructions.lower() == "decode":
+                elif instructions == "decode":
                     newPosition = (oldPosition - shift) % len(alphabet)
                 newLetter = alphabet[newPosition]
                 newString += newLetter
             else:
                 newString += char
-        else:
-            print("Invalid Selection, please select either encode or decode.")
-    print(f"The {instructions.lower()}d text is {newString}")
+        print(f"The {instructions}d text is {newString}")
+    else:
+        print("Invalid Selection, please select either encode or decode.")
 
 
 
@@ -48,6 +49,7 @@ while not quitProgram:
     instructions = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message :\n").lower()
     shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
     cesarCipher(text, shift, instructions)
     again = input("Would you like to play again? Type 'yes' or 'no':\n")
     if again == "no":
