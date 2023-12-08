@@ -33,13 +33,13 @@ while playing:
         scoreBoard.incScore()
 
     if snake.head.xcor() > 295 or snake.head.xcor() < -295 or snake.head.ycor() > 295 or snake.head.ycor() < -295:
-        playing = False
-        scoreBoard.gameOver()
+        scoreBoard.reset()
+        snake.reset()
 
     for segment in snake.segments:
-        if (segment != snake.head and segment != snake.segments[1] and segment != snake.segments[2] and
-                snake.head.distance(segment) < 10):
-            playing = False
-            scoreBoard.gameOver()
+        if (segment != snake.head and segment != snake.segments[1] and segment != snake.segments[2] and snake.head.distance(segment) < 10):
+            scoreBoard.reset()
+            snake.reset()
+
 
 window.exitonclick()
