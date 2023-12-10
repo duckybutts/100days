@@ -20,3 +20,4 @@ for name in names:          # for n in list
     with open(f"Output/ReadyToSend/letter_for_{name}.txt", mode = "w") as file:
         file.write(placeHolder.replace("[name],", f"{name},"))
 
+
