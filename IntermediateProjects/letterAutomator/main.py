@@ -8,9 +8,9 @@
 # Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 
 # want to read the starting letter
-with open("Input/Letters/starting_letter.txt", mode = "r") as file:
+with open("Input/Letters/starting_letter.txt", mode ="r") as file:
     template = file.read()
-with open("Input/Names/invited_names.txt", mode = "r") as file:
+with open("Input/Names/invited_names.txt", mode ="r") as file:
     names = file.readlines()
 
 for name in names:          # for n in list
